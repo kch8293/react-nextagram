@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
 import UserImages from "../Containers/UserImages";
 
 class Homepage extends React.Component {
@@ -13,7 +14,7 @@ class Homepage extends React.Component {
           >
             <Col lg="2">
               <li style={{ listStyleType: "none" }}>
-                <Row lg="2">
+                <Row>
                   {user.id}: {user.username}
                 </Row>
                 <Row>
@@ -23,16 +24,23 @@ class Homepage extends React.Component {
                     className="rounded-circle Homepage_ProfileImage"
                   />
                 </Row>
-                {/* <Row> */}
-                <a href={`/user/${user.id}`}>
-                  <Button color="primary">See More</Button>
-                </a>
-                {/* </Row> */}
+                <Row>
+                  <Button
+                    tag={Link}
+                    to={`/user/${user.id}`}
+                    color="primary"
+                    className=""
+                  >
+                    See More
+                  </Button>
+                </Row>
               </li>
             </Col>
-            <div className="col">
-              <UserImages id={user.id}></UserImages>
-            </div>
+            <Col>
+              <Row>
+                <UserImages id={user.id}></UserImages>
+              </Row>
+            </Col>
           </div>
         ))}
       </ul>

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Col, Row } from "reactstrap";
 
 class UserImages extends React.Component {
   state = {
@@ -26,14 +27,14 @@ class UserImages extends React.Component {
     return (
       <>
         {this.state.userImages.map((userImage, index) => (
-          <div className="col-3" style={{ display: "inline" }}>
+          <Col lg-3>
             <img
               key={index}
               src={userImage}
               alt="UserImage"
-              className="col-3 img-fluid UserImages_Image"
+              className="UserImages_Image"
             ></img>
-          </div>
+          </Col>
         ))}
       </>
     );
